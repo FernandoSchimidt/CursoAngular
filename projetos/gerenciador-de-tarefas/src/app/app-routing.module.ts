@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-export const routes: Routes = [
+import { TarefasRoutes } from './tarefas';
 
+export const routes: Routes = [
+{
+  path:'',
+  redirectTo:'/tarefas/listar',
+  pathMatch:'full'
+},
+    ...TarefasRoutes
 ];
 
 @NgModule({
@@ -10,4 +17,4 @@ export const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }
