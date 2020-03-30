@@ -1,3 +1,10 @@
-h1{
-    color: brown;
+.navbar{
+    background: linear-gradient(90deg, #12bcff 10%,  rgb(29, 255, 161) 90%);
+    text-align: center;
+}
+.jumbotron{
+    margin-top: 20px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    background: linear-gradient(90deg, #3fc9ff 10%,  rgb(129, 255, 228) 90%);
 }

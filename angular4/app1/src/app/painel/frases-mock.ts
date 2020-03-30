@@ -2,8 +2,8 @@ import { Frase } from '../shared/frase.model'
 
 export const FRASES: Frase[] = [
     { fraseEng: 'I like to learn', frasePtBr: 'Eu gosto de aprender' },
-    { fraseEng: 'I wach tv', frasePtBr: 'Eu assito tv' },
-    { fraseEng: 'How are you?', frasePtBr: 'Como vai você' },
+    { fraseEng: 'I wach tv', frasePtBr: 'Eu assisto tv' },
+    { fraseEng: 'How are you?', frasePtBr: 'Como vai você?' },
     { fraseEng: 'I eat bread', frasePtBr: 'Eu como pão' }
     // { fraseEng: 'I like burger', frasePtBr: 'Eu gosto de hamburguer' },
     // { fraseEng: 'This week was good', frasePtBr: 'Esta semana foi boa' },
