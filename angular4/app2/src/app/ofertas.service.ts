@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Oferta } from './shared/oferta.model'
-import { getLocaleDayPeriods } from '@angular/common'
-
+import {map} from'rxjs/operators'
 import { URL_API } from './app.api'
+import { Observable } from 'rxjs'
 
 @Injectable()
 export class OfertasService {
@@ -39,12 +39,17 @@ export class OfertasService {
                 return resposta[0].descricao
             })
     }
-    public getOndeFicaOfertaPorID(id:number):Promise<string>{
+    public getOndeFicaOfertaPorID(id: number): Promise<string> {
         return this.http.get(`${URL_API}/onde-fica?id=${id}`)
-        .toPromise()
-        .then((resposta:any)=>{
-            return resposta[0].descricao
-        })
+            .toPromise()
+            .then((resposta: any) => {
+                return resposta[0].descricao
+            })
+    }
+
+    public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+        return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+            .pipe(map((resposta: any) => resposta))
     }
 
 }
