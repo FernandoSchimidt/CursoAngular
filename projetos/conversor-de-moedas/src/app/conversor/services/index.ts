@@ -1,2 +1,2 @@
-export * from './moeda.service';
-export * from './conversor.service';
+export * from './moeda.service'
+export * from './conversor.service'

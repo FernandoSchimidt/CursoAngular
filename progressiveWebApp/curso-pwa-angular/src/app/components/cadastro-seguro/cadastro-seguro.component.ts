@@ -24,6 +24,6 @@ export class CadastroSeguroComponent implements OnInit {
     this.marcasCarro$ = this.marcaCarroService.getMArcas();
   }
   cadastrar() {
-    this.seguroService.cadastrar(this.seguro)
+    this.seguroService.salvar(this.seguro)
   }
 }
