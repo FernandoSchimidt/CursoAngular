@@ -3,5 +3,13 @@ mat-card {
 }
 
 .form-field {
-  width: 100%;
+  width: 40%;
+  margin: 10px;
+  transition: 1s;
+}
+
+@media only screen and (max-width: 500px) {
+    .form-field{
+        width: 100%;
+    }
 }
