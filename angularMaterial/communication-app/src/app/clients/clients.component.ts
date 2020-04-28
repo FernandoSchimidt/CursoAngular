@@ -24,5 +24,12 @@ export class ClientsComponent implements OnInit {
     this.name = ""
     this.age = 0
   }
+  deleteClient(i) {
+    this.clients.splice(i, 1)
+  }
+  updateClient(c: Client, i) {
+    this.clients[i].name = c.name;
+    this.clients[i].age = c.age;
+  }
 
 }

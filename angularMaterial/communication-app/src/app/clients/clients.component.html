@@ -14,6 +14,8 @@
   </mat-card-content>
 </mat-card>
 
+<br><br>
+<app-item-client *ngFor="let c of clients; let i=index" [client]="c" (removeClient)="deleteClient(i)"
+  (updateClient)="updateClient($event,i)">
 
-<app-item-client *ngFor="let c of clients" [client]="c">
-  <app-item-client>
+</app-item-client>

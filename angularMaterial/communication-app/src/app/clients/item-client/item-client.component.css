@@ -1,0 +1,12 @@
+.form-field {
+    padding-right: 5px;
+    width: 40%;
+    margin: 5px;
+  }
+  
+  mat-card {
+    margin: 20px;
+  }
+button{
+  margin: 10px;
+}  

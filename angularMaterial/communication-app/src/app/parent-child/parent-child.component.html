@@ -1,0 +1,23 @@
+<div>
+  <button mat-button color="primary" (click)="stopwatch.start()">Start</button>
+  <button mat-button color="accent" (click)="stopwatch.stop()">Stop</button>
+  <button mat-button color="warn" (click)="stopwatch.clear()">Clear</button>
+</div>
+<app-timer #stopwatch>
+
+</app-timer>
+
+
+<div>
+  <button mat-button color="primary" (click)="start()">Start</button>
+  <button mat-button color="accent" (click)="stop()">Stop</button>
+  <button mat-button color="warn" (click)="clear()">Clear</button>
+</div>
+
+<p #myP>Lorem ipsum dolor sit amet
+  consectetur adipisicing elit. Illum,
+  fuga. Qui necessitatibus,
+  tenetur fuga a debitis
+  veniam consectetur,
+  id commodi modi, saepe vero enim nobis?
+  Eius commodi officia inventore! Doloremque!</p>
