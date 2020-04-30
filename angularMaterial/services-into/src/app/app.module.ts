@@ -40,21 +40,19 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
+
 import { FormsModule } from '@angular/forms';
-import { MainLifecycleComponent } from './main-lifecycle/main-lifecycle.component';
-import { LifeCycleChildComponent } from './main-lifecycle/life-cycle-child/life-cycle-child.component';
-import { ChildChildComponent } from './main-lifecycle/life-cycle-child/child-child/child-child.component';
+import { Module1Module } from './module1/module1.module'
+import { Module2Module } from './module2/module2.module';
+
+
 @NgModule({
   declarations: [
-    AppComponent,
-    MainLifecycleComponent,
-    LifeCycleChildComponent,
-    ChildChildComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -90,10 +88,9 @@ import { ChildChildComponent } from './main-lifecycle/life-cycle-child/child-chi
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
-  ],
-  exports: [
-
+    MatTreeModule,
+    Module1Module,
+    Module2Module
   ],
   providers: [],
   bootstrap: [AppComponent]

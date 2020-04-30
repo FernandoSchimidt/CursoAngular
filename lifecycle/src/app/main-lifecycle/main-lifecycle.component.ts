@@ -13,8 +13,15 @@ export class MainLifecycleComponent implements OnInit {
   age: number;
   food: string;
   editClient: number = -1;
+   randomNumber: number;
 
-  constructor() { }
+  constructor() {
+    this.generateRandomNumber();
+  }
+  generateRandomNumber() {
+    this.randomNumber = Math.round(Math.random() * 1000)
+
+  }
 
   ngOnInit(): void {
   }

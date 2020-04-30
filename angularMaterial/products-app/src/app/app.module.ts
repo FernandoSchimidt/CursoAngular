@@ -1,10 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+//Material
 import { MatRippleModule, MatNativeDateModule } from "@angular/material/core";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatBadgeModule } from "@angular/material/badge";
@@ -40,21 +37,23 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
+
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MainLifecycleComponent } from './main-lifecycle/main-lifecycle.component';
-import { LifeCycleChildComponent } from './main-lifecycle/life-cycle-child/life-cycle-child.component';
-import { ChildChildComponent } from './main-lifecycle/life-cycle-child/child-child/child-child.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { DepartamentComponent } from './departament/departament.component';
+import { ProductsTableComponent } from './products-table/products-table.component'
 @NgModule({
   declarations: [
     AppComponent,
-    MainLifecycleComponent,
-    LifeCycleChildComponent,
-    ChildChildComponent
+    ProductFormComponent,
+    DepartamentComponent,
+    ProductsTableComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -90,10 +89,10 @@ import { ChildChildComponent } from './main-lifecycle/life-cycle-child/child-chi
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
-  ],
-  exports: [
-
+    MatTreeModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
