@@ -12,6 +12,7 @@ export class DepartmentService {
     { id: 3, name: 'Eletronics' },
     { id: 4, name: 'Computers' }
   ];
+  
   private nextId: number = 5;
   constructor() { }
 
@@ -20,6 +21,10 @@ export class DepartmentService {
   }
   addDepartament(d: Department) {
     this.departaments.push({ ...d, id: this.nextId++ });
-    console.log(this.departaments)
+    console.log(this.departaments);
+  }
+
+  getDepartmentById(id: number): Department {
+    return this.departaments.find((d) => d.id == id);
   }
 }
