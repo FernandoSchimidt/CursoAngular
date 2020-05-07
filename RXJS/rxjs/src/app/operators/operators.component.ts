@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { from, fromEvent, interval, Observable, Subscription } from 'rxjs';
-import { map, delay, filter, tap, take, first, last } from 'rxjs/operators'
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { from, fromEvent, interval, Observable, Subscription, Subject, timer } from 'rxjs';
+import { map, delay, filter, tap, take, first, last, debounceTime, takeWhile, takeUntil } from 'rxjs/operators'
+import { MatRipple } from '@angular/material/core';
 @Component({
   selector: 'app-operators',
   templateUrl: './operators.component.html',
@@ -8,6 +9,8 @@ import { map, delay, filter, tap, take, first, last } from 'rxjs/operators'
 })
 export class OperatorsComponent implements OnInit {
 
+  @ViewChild(MatRipple) ripple: MatRipple;
+  searchInput: string = "";
   constructor() { }
 
   ngOnInit(): void {
@@ -67,7 +70,7 @@ export class OperatorsComponent implements OnInit {
         tap(i => console.log(i)),
         // take(10)
         // first()
-       // last()
+        // last()
       )
       .subscribe(
         v => console.log("Output: ", v),
@@ -82,6 +85,56 @@ export class OperatorsComponent implements OnInit {
         clearInterval(interv);
       }
     }, 200)
+  }
+
+
+  lauchRipple() {
+    const rippleRef = this.ripple.launch({
+      persistent: true, centered: true
+    });
+    rippleRef.fadeOut();
+  }
+  debounceTimeClick() {
+    fromEvent(document, 'click')
+      .pipe(
+        tap((e) => console.log('Click')),
+        debounceTime(500)
+      )
+      .subscribe((e: MouseEvent) => {
+        console.log("Click with debounceTime: " + e)
+        this.lauchRipple()
+      })
+  }
+  searchEntry$: Subject<string> = new Subject<string>();
+  searchBy_UsingDebounce(event) {
+    this.searchEntry$.next(this.searchInput);
+  }
+  debounceTimeSearch() {
+    this.searchEntry$
+      .pipe(debounceTime(500))
+      .subscribe((s) => console.log(s))
 
   }
+  takeWhileClick() {
+    interval(500)
+      .pipe(takeWhile((value, index) => (value < 5)))
+      .subscribe(
+        (i) => console.log('takewhile: ' + i),
+        (error) => console.log(error),
+        () => console.log('Completed!')
+      )
+  }
+  takeUntilSeach() {
+
+    let dueTime$ = timer(5000);
+
+    interval(500)
+      .pipe(takeUntil(dueTime$))
+      .subscribe(
+        (i) => console.log('takewhile: ' + i),
+        (error) => console.log(error),
+        () => console.log('Completed!')
+      )
+  }
+
 }

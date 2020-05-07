@@ -44,12 +44,21 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BasicCrationComponent } from './basic-cration/basic-cration.component';
 import { FormsModule } from '@angular/forms';
 import { OperatorsComponent } from './operators/operators.component';
+import { AsyncComponent } from './async/async.component';
+import { ErrorHandlingComponent } from './error-handling/error-handling.component';
+import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
+import { SwitchMergeComponent } from './switch-merge/switch-merge.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicCrationComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    AsyncComponent,
+    ErrorHandlingComponent,
+    UnsubscribeComponent,
+    SwitchMergeComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,7 +101,8 @@ import { OperatorsComponent } from './operators/operators.component';
     MatTreeModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

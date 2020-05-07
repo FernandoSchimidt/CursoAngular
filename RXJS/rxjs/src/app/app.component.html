@@ -3,12 +3,20 @@
     <mat-radio-group [(ngModel)]="option" fxLayout="column" fxLayoutAlign="center start">
       <mat-radio-button value="basic-creation">Basic Creation</mat-radio-button>
       <mat-radio-button value="operators">Operators</mat-radio-button>
+      <mat-radio-button value="async">Templates / Async</mat-radio-button>
+      <mat-radio-button value="error">Error Handling</mat-radio-button>
+      <mat-radio-button value="unsubscribe">Unsubscribe</mat-radio-button>
+      <mat-radio-button value="switchmerge">Switch Merge</mat-radio-button>
     </mat-radio-group>
   </div>
-  <div fxFlex="70" fxLayout="column" fxLayoutAlign="center start">
+  <div fxFlex="70" fxLayout="column" fxLayoutAlign="start start" fxFill>
     <ng-container [ngSwitch]="option">
       <app-basic-cration *ngSwitchCase="'basic-creation'" fxFill></app-basic-cration>
       <app-operators *ngSwitchCase="'operators'" fxFill></app-operators>
+      <app-async *ngSwitchCase="'async'" fxFill></app-async>
+      <app-error-handling *ngSwitchCase="'error'" fxFill></app-error-handling>
+      <app-unsubscribe *ngSwitchCase="'unsubscribe'" fxFill></app-unsubscribe>
+      <app-switch-merge *ngSwitchCase="'switchmerge'" fxFill></app-switch-merge>
     </ng-container>
   </div>
 </div>
