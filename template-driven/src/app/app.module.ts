@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 //material
 import { MatRippleModule, MatNativeDateModule } from "@angular/material/core";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
@@ -43,15 +42,18 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductsService } from './products.service';
-import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-product.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { FormNativeValidationComponent } from './form-native-validation/form-native-validation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogEditProductComponent
+    TemplateDrivenFormComponent,
+    FormNativeValidationComponent
   ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
@@ -93,9 +95,7 @@ import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-pr
     FormsModule,
     HttpClientModule
   ],
-  providers: [
-    ProductsService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
