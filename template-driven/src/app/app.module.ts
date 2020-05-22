@@ -40,16 +40,20 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { FormNativeValidationComponent } from './form-native-validation/form-native-validation.component';
+import { FormaValidationComponent } from './forma-validation/forma-validation.component';
+import { FormControlComponent } from './form-control/form-control.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDrivenFormComponent,
-    FormNativeValidationComponent
+    FormNativeValidationComponent,
+    FormaValidationComponent,
+    FormControlComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +97,8 @@ import { FormNativeValidationComponent } from './form-native-validation/form-nat
     MatTooltipModule,
     MatTreeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
