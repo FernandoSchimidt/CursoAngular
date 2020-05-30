@@ -46,6 +46,10 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
 import { FormNativeValidationComponent } from './form-native-validation/form-native-validation.component';
 import { FormaValidationComponent } from './forma-validation/forma-validation.component';
 import { FormControlComponent } from './form-control/form-control.component';
+import { FormGroupComponent } from './form-group/form-group.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { FormArrayComponent } from './form-array/form-array.component';
+import { ReactiveFormValidattionComponent } from './reactive-form-validattion/reactive-form-validattion.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,11 @@ import { FormControlComponent } from './form-control/form-control.component';
     TemplateDrivenFormComponent,
     FormNativeValidationComponent,
     FormaValidationComponent,
-    FormControlComponent
+    FormControlComponent,
+    FormGroupComponent,
+    FormBuilderComponent,
+    FormArrayComponent,
+    ReactiveFormValidattionComponent
   ],
   imports: [
     BrowserModule,
