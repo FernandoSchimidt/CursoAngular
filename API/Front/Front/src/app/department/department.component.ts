@@ -11,31 +11,34 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
-  depName: string = '';
+
+  depName: string = "";
   departments: Department[] = [];
-  private unsubscrire$: Subject<any> = new Subject();
+  private unsubscribe: Subject<any> = new Subject();
   depEdit: Department = null;
-  constructor(
-    private departmentService: DepartmentService,
-    private snackBar: MatSnackBar
-  ) { }
+
+  constructor(private departmentService: DepartmentService,
+    private snackBar: MatSnackBar) {
+
+
+  }
 
   ngOnInit(): void {
     this.departmentService.get()
-      .pipe(takeUntil(this.unsubscrire$))
+      .pipe(takeUntil(this.unsubscribe))
       .subscribe((deps) => {
         this.departments = deps;
       })
   }
   save() {
     if (this.depEdit) {
-      this.departmentService.update({ name: this.depName, id: this.depEdit.id })
+      this.departmentService.update({ name: this.depName, _id: this.depEdit._id })
         .subscribe(
           (dep) => {
-            this.notify('Updated Successfully!')
+            this.notify('Updated');
           },
           (err) => {
-            this.notify('Error Here');
+            this.notify('Error');
             console.error(err);
           }
         )
@@ -44,15 +47,14 @@ export class DepartmentComponent implements OnInit {
         .subscribe((dep) => {
           console.log(dep);
           this.clearFields();
-          this.notify('Department Inserted')
-        }, (err) => {
-          console.error(err);
-        })
+          this.notify('Department saved');
+
+
+        },
+          (err) => {
+            console.error(err);
+          })
     }
-  }
-  clearFields() {
-    this.depName = "";
-    this.depEdit = null;
   }
   cancel() {
 
@@ -60,21 +62,24 @@ export class DepartmentComponent implements OnInit {
   delete(dep: Department) {
     this.departmentService.del(dep)
       .subscribe(
-        () => this.notify('Removed'),
-        (err) => console.log(err)
+        () => this.notify('Department removed!'),
+        (err) => console.error(err)
       )
   }
   edit(dep: Department) {
     this.depName = dep.name;
     this.depEdit = dep;
   }
-
+  clearFields() {
+    this.depName = "";
+    this.depEdit = null;
+  }
   notify(msg: string) {
     this.snackBar.open(msg, "Ok", { duration: 3000 });
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
-    this.unsubscrire$.next();
+    this.unsubscribe.next();
   }
 }
