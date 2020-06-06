@@ -8,8 +8,8 @@ import { map, delay } from 'rxjs/operators';
 })
 export class DvdService {
 
-  private dvdSubject$: BehaviorSubject<Dvd[]> = new BehaviorSubject<Dvd[]>([];)
-  public dvd$ = this.dvdSubject$.asObservable();
+  private dvdSubject$: BehaviorSubject<Dvd[]> = new BehaviorSubject<Dvd[]>([]);
+  public dvds$ = this.dvdSubject$.asObservable();
 
   constructor() {
     timer(2000)
@@ -32,7 +32,7 @@ export class DvdService {
   }
 
   get(i: number): Observable<Dvd> {
-    return this.dvd$.pipe(
+    return this.dvds$.pipe(
       map(dvds => (i >= 0 && i < dvds.length) ? dvds[i] : null),
       delay(1000)
     )

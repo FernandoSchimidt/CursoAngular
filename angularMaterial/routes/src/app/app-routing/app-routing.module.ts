@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { DvdComponent } from '../dvd/dvd.component';
 import { BookComponent } from '../book/book.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { DvdDetailComponent } from '../dvd/dvd-detail/dvd-detail.component';
 
 
 //rotas
 const appRoutes: Routes = [
   { path: 'dvds', component: DvdComponent },
+  { path: 'dvds/:index', component: DvdDetailComponent },
   { path: 'books', component: BookComponent },
   { path: '', pathMatch: 'full', redirectTo: 'dvds' },
   { path: '**', component: PageNotFoundComponent }
