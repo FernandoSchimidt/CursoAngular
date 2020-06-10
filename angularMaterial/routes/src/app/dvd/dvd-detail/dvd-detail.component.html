@@ -1,9 +1,11 @@
+<p *ngIf="title !== null">Fetching details for DVD - {{title}}</p>
+
 <ul *ngIf="dvd$ | async as dvd;else loading">
   <li>Title: {{dvd.title}}</li>
   <li>Year: {{dvd.year}}</li>
   <li>Genre: {{dvd.genre}}</li>
 
-<button color="primary" mat-button (click)="goBack()">Back</button>
+  <button color="primary" mat-button (click)="goBack()">Back</button>
 
 </ul>
 

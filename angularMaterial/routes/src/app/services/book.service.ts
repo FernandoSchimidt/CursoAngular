@@ -11,14 +11,14 @@ export class BookService {
   public books$ = this.bookSubject$.asObservable();
 
   constructor() {
-    timer(2000)
+    timer(20)
       .subscribe(() => {
         this.bookSubject$.next([
           { title: "Book1", pages: 200, authors: ["jhn", "nicole"] },
           { title: "Book2", pages: 2000, authors: ["Repolho"] },
           { title: "Book3", pages: 100, authors: ["Batata"] },
           { title: "Book4", pages: 500, authors: ["dunha"] },
-          { title: "Book5", pages: 600, authors: ["fernando schimidt"] },
+          { title: "Book5", pages: 600, authors: ["fernando schimidt","dunha"] },
         ])
       })
   }

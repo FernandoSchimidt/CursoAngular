@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class DvdDetailComponent implements OnInit {
 
   dvd$: Observable<Dvd>
-
+  title = null;
   constructor(
     private route: ActivatedRoute,
     private dvdService: DvdService,
@@ -24,6 +24,11 @@ export class DvdDetailComponent implements OnInit {
     // this.route.paramMap
     //   .subscribe((params: ParamMap) => { console.log("index: ", params.get('index')) })
     this.dvd$ = this.dvdService.get(index);
+    this.route.paramMap
+      .subscribe((params: ParamMap) => {
+        if (params.has('title'))
+          this.title = params.get('title');
+      })
   }
   goBack() {
     this.router.navigate(['/dvds']);
