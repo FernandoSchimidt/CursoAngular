@@ -1,8 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ElectronicsRoutingModule } from './electronics-routing.module';
+import { ElectronicListComponent } from './electronic-list/electronic-list.component';
+import { ElectronicDetailComponent } from './electronic-list/electronic-detail/electronic-detail.component';
+
 
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -45,39 +47,11 @@ import { MatTreeModule } from "@angular/material/tree";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BookComponent } from './book/book.component';
-import { DvdComponent } from './dvd/dvd.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { Routes, RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { DvdDetailComponent } from './dvd/dvd-detail/dvd-detail.component';
-import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component';
-import { BookDetailComponent } from './book/book-detail/book-detail.component';
-import { BookAtuthorsComponent } from './book/book-atuthors/book-atuthors.component';
-import { ElectronicsModule } from './electronics/electronics.module';
-
-// //rotas
-// const appRoutes: Routes = [
-//   { path: 'dvds', component: DvdComponent },
-//   { path: 'books', component: BookComponent },
-//   {path:'',pathMatch:'full',redirectTo:'dvds'},
-//   {path:'**',component:PageNotFoundComponent}
-// ]
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    BookComponent,
-    DvdComponent,
-    PageNotFoundComponent,
-    DvdDetailComponent,
-    DvdFormComponent,
-    BookDetailComponent,
-    BookAtuthorsComponent,
-  ],
+  declarations: [ElectronicListComponent, ElectronicDetailComponent],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
+    ElectronicsRoutingModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -118,17 +92,6 @@ import { ElectronicsModule } from './electronics/electronics.module';
     HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    // RouterModule.forRoot(appRoutes)
-    // ElectronicsModule,
-
-
-    ReactiveFormsModule,
-
-
-//dever o ultimo
-    AppRoutingModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  ]
 })
-export class AppModule { }
+export class ElectronicsModule { }
