@@ -1,0 +1,11 @@
+.msg-from-me{
+  background-color:lightblue;
+  text-align: right;
+  border-radius: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+.chat-messages{
+  overflow: auto;
+}
