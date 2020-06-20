@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "products-7c832": {
+      "hosting": {
+        "firestone": [
+          "products-7c832"
+        ]
+      }
+    }
+  }
+}
